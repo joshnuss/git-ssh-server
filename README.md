@@ -42,6 +42,9 @@ In your local repo:
 # add a remote
 git remote add hosting ssh://git@localhost:22755/example
 
+# OR if you're using a standard SSH port 22
+git remote add hosting git@mydomain.tld/example
+
 # push to remote
 git push hosting master
 ```
