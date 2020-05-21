@@ -40,10 +40,10 @@ In your local repo:
 
 ```bash
 # add a remote
-git remote add hosting ssh://git@localhost:22755/example
+git remote add hosting ssh://git@localhost:22755/your-repo-name
 
 # OR if you're using a standard SSH port 22
-git remote add hosting git@mydomain.tld/example
+git remote add hosting git@mydomain.tld/your-repo-name
 
 # push to remote
 git push hosting master
