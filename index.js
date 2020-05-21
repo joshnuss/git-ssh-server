@@ -31,7 +31,7 @@ const server = new Server(options, client => {
       if (user.length == allowedUser.length && crypto.timingSafeEqual(user, allowedUser) && ctx.method == 'publickey') {
         const { key } = ctx
 
-        // TODO:
+        // TODO: Security!!!!!! Compare keys
 
         return ctx.accept()
       }
@@ -69,13 +69,6 @@ const server = new Server(options, client => {
             stream.exit(code)
             stream.end()
           })
-
-          /*
-          console.log(stream)
-          stream.write("Why hello there\n")
-          stream.exit(0)
-          stream.end()
-          */
         })
       })
     })
