@@ -1,6 +1,14 @@
 {
-  "name": "server2",
+  "name": "git-ssh-server",
   "version": "1.0.0",
   "main": "index.js",
-  "license": "MIT"
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "start": "node --experimental-modules index.js"
+  },
+  "dependencies": {
+    "glob": "^7.1.6",
+    "ssh2": "^0.8.9"
+  }
 }
