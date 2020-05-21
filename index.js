@@ -51,7 +51,7 @@ const server = new Server(options, client => {
           const stream = accept()
 
           const [command, arg] = info.command.split(' ')
-          const repo = path.resolve('../server-repos/' + arg.replace(/(^')|('$)/g, '').replace(/^\//, ''))
+          const repo = path.resolve('./repos/' + arg.replace(/(^')|('$)/g, '').replace(/^\//, ''))
 
           if (!fs.existsSync(repo)) {
             execSync(`git init --bare ${repo}`)
