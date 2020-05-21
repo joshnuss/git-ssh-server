@@ -1,7 +1,7 @@
 Example GIT+SSH Server
 ----------------------
 
-A small git/ssh server for hosting repos.
+A small git/ssh server for hosting repos and running custom logic after push.
 
 # Features
 
