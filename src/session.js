@@ -2,15 +2,25 @@ import fs from 'fs'
 import path from 'path'
 import { spawn, execSync } from 'child_process'
 
+const allowedCommands = [
+  "git-receive-pack",
+  "git-upload-pack"
+]
+
 export default function session(accept, reject) {
   console.log('client:start')
   const session = accept()
 
   session.once('exec', (accept, reject, info) => {
     console.log(`client:exec ${info.command}`)
-    const stream = accept()
-
     const {command, repo} = extractCommand(info)
+
+    if (!allowedCommands.includes(command)) {
+      console.log(`error:rejected ${command}`)
+      return reject()
+    }
+
+    const stream = accept()
 
     if (missing(repo)) {
       create(repo)
@@ -24,7 +34,7 @@ export default function session(accept, reject) {
 
 function extractCommand(info) {
   const [command, arg] = info.command.split(' ')
-  const repo = path.resolve('./repos/' + arg.replace(/(^')|('$)/g, '').replace(/^\//, ''))
+  const repo = arg ? path.resolve('./repos/' + arg.replace(/(^')|('$)/g, '').replace(/^\//, '')) : null
 
   return {command, repo}
 }
