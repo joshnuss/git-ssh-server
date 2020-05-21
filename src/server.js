@@ -1,6 +1,6 @@
 import ssh2 from 'ssh2'
 import fs from 'fs'
-import authenticate from './authenticate.js'
+import auth from './auth.js'
 import session from './session.js'
 
 const { Server, utils } = ssh2
@@ -18,7 +18,7 @@ export default new Server(options, client => {
   console.log('client:connected')
 
   client
-    .on('authentication', authenticate)
+    .on('authentication', auth)
     .on('ready', () => {
       console.log('client:ready')
       client.on('session', session)
