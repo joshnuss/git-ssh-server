@@ -33,7 +33,7 @@ Add `.pub` public keys to `keys` folder
 Start the server:
 
 ```bash
-PORT=22755 DOMAIN=localhost yarn start
+PORT=22755 ADDRESS=localhost yarn start
 ```
 
 In your local repo:

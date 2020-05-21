@@ -21,6 +21,9 @@ const clientKeys = glob
   .sync('keys/*.pub')
   .map(path => fs.readFileSync(path))
 
+const port = process.env.PORT || 22755
+const address = process.env.ADDRESS || 'localhost'
+
 const server = new Server(options, client => {
   console.log('Client connected')
 
@@ -77,6 +80,6 @@ const server = new Server(options, client => {
     })
 })
 
-server.listen(22755, '127.0.0.1', function() {
+server.listen(port, address, function() {
   console.log(`Listening on port: ${this.address().port}`)
 })
