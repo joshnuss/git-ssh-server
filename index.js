@@ -50,7 +50,6 @@ const server = new Server(options, client => {
 
         session.once('exec', (accept, reject, info) => {
           console.log(`Client wants to execute: ${inspect(info.command)}`)
-          console.log(info)
           const stream = accept()
 
           const [command, arg] = info.command.split(' ')
