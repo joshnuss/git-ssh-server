@@ -5,12 +5,12 @@ A small git/ssh server for hosting repos and running custom logic after push.
 
 # Features
 
-- `git push`, `git pull` & `git clone` are supported
-- Authentication is done with public keys. (no passwords allowed)
-- Repos & public keys are stored on disk
-- Repos are automatically created on first push
+- `git push`, `git pull` & `git clone` are supported.
+- Authentication is done via public keys exclusively. (no passwords allowed)
+- Repos & public keys are stored on disk.
+- Repos are automatically created on-demand (first push).
 
-# Setup
+## Setup
 
 Get the latest code:
 
@@ -28,7 +28,7 @@ ssh-keygen host.key
 
 Add `.pub` public keys to `keys` folder
 
-# Usage
+## Usage
 
 Start the server:
 
@@ -49,6 +49,6 @@ git remote add hosting git@mydomain.tld/your-repo-name
 git push hosting master
 ```
 
-# License
+## License
 
 MIT
