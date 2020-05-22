@@ -1,6 +1,7 @@
 /node_modules
 /keys
 /repos
+/hooks
 host.key
 host.key.pub
 yarn-error.log

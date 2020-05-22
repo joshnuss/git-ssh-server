@@ -1,4 +1,5 @@
 import fs from 'fs'
+import glob from 'glob'
 import path from 'path'
 import { spawn, execSync } from 'child_process'
 
@@ -46,6 +47,17 @@ function missing(repo) {
 function create(repo) {
   console.log(`repo:create ${repo}`)
   execSync(`git init --bare ${repo}`)
+
+  symlinkHooks(repo)
+}
+
+function symlinkHooks(repo) {
+  glob.sync('hooks/*').forEach(hook => {
+    const absolutePath = path.resolve(hook)
+    const link = path.resolve(repo, hook)
+
+    fs.symlinkSync(absolutePath, link)
+  })
 }
 
 function pipe(stream, command, args = []) {
