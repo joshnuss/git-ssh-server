@@ -9,7 +9,7 @@ A small git/ssh server for hosting repos and running custom logic after push.
 - Authentication is done via public keys exclusively. (no passwords allowed)
 - Repos & public keys are stored on disk.
 - Repos are automatically created on-demand (first push).
-- Apply server-side Git hooks like `pre-receive`, `update` & `post-receive` to all repos
+- Server-side hooks like `pre-receive`, `update` & `post-receive` can be applied to all repos.
 
 ## Setup
 
@@ -27,14 +27,16 @@ Create a host key:
 ssh-keygen host.key
 ```
 
-Add `.pub` public keys to `keys` folder:
+Add `.pub` public keys to the `keys` folder:
 
 ```bash
 # if using locally
 cp ~/.ssh/id_rsa.pub keys/me.pub
 ```
 
-Setup hooks in `hooks` folder (optional). Example `post-receive` hook:
+Add git hooks like `pre-receive`, `update` &  `post-receive` to the `hooks` folder (optional).
+
+Example `post-receive` hook:
 
 ```bash
 #!/bin/bash
