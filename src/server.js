@@ -5,9 +5,12 @@ import session from './session.js'
 
 const { Server, utils } = ssh2
 
+if (!process.env.PASSPHRASE)
+  throw new Error('Please provide a passphrase for host.key')
+
 const hostKey = {
   key: fs.readFileSync('host.key'),
-  passphrase: 'foobar'
+  passphrase: process.env.PASSPHRASE
 }
 
 const options = {

@@ -60,7 +60,7 @@ Hooks are symlinked on first push.
 Start the server:
 
 ```bash
-PORT=22755 ADDRESS=localhost yarn start
+PORT=22755 ADDRESS=localhost PASSPHRASE=foobar yarn start
 ```
 
 In your local repo:
