@@ -63,7 +63,7 @@ Start the server:
 PORT=22755 ADDRESS=localhost PASSPHRASE=foobar yarn start
 ```
 
-In your local repo:
+For an existing repo:
 
 ```bash
 # add a remote
@@ -77,9 +77,16 @@ git push hosting master
 
 # pull from remote
 git pull hosting master
+```
 
+Or clone a new repo:
+
+```bash
 # clone from remote
-git clone ssh://mydomain.tld:22755/your-repo-name
+git clone ssh://git@mydomain.tld:22755/your-repo-name
+
+# OR if using standard SSH port 22
+git clone git@mydomain.tld/your-repo-name
 ```
 
 ## License
