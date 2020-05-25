@@ -74,6 +74,12 @@ git remote add hosting git@mydomain.tld/your-repo-name
 
 # push to remote
 git push hosting master
+
+# pull from remote
+git pull hosting master
+
+# clone from remote
+git clone ssh://mydomain.tld:22755/your-repo-name
 ```
 
 ## License
