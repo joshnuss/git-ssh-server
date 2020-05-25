@@ -21,7 +21,7 @@ cd git-ssh-server
 yarn
 ```
 
-Create a host key:
+Create a host key with a passphrase:
 
 ```bash
 ssh-keygen host.key
